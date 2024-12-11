@@ -20,6 +20,10 @@ else
 		tell application appName
 			activate
 		end tell
+	else
+		tell application frontmostProcess
+			activate
+		end tell
 	end if
 end if
 ```
