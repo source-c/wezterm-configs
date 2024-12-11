@@ -3,7 +3,7 @@
 ## Create MacOS script to toggle the app
 
 ```
--- Define vars
+-- Define needed vars
 set appName to "WezTerm"
 set launcher to "/Applications/WezTerm.app/Contents/MacOS/wezterm-gui"
 
@@ -16,11 +16,7 @@ if application appName is not running then
 	do shell script launcher
 else
 	-- Compare frontmost process name with appName
-	if name of frontmostProcess is appName then
-		tell application appName
-			activate
-		end tell
-	else
+	if name of frontmostProcess is not appName then
 		tell application appName
 			activate
 		end tell
