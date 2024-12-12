@@ -52,8 +52,52 @@ function module.apply_to_config(config)
   		key = 'F12',
   		mods = 'OPT',
   		action = wezterm.action.HideApplication
-  	}
+  	},
+  	-- turn back normal behaviour of moving cursor back and forth by one word with Option+<Arrow Right/Left>
+  	{
+  		key = 'LeftArrow',
+  		mods = 'OPT',
+  		action = act.SendKey { key = 'b', mods = 'ALT' }
+  	},
+  	{
+  		key = 'RightArrow',
+  		mods = 'OPT',
+  		action = act.SendKey { key = 'f', mods = 'ALT' }
+  	},
+  	-- Switch tabs with Command+<Arrow Right/Left>
+  	{
+  		key = 'LeftArrow',
+  		mods = 'CMD',
+  		action = act { ActivateTabRelative = -1 }
+  	},
+  	{
+  		key = 'RightArrow',
+  		mods = 'CMD',
+  		action = act { ActivateTabRelative = 1 }
+  	},
+  	-- Move tabs with Command+Shift+<Arrow Right/Left>
+  	{
+  		key = 'LeftArrow',
+  		mods = 'CMD|SHIFT',
+  		action = act { MoveTabRelative = -1 }
+  	},
+  	{
+  		key = 'RightArrow',
+  		mods = 'CMD|SHIFT',
+  		action = act { MoveTabRelative = 1 }
+  	},
+  	{ -- Launch tabs list
+  		key = 'UpArrow',
+  		mods = 'CMD',
+  		action = act.ShowTabNavigator
+  	},
+  	{ -- Split pane Veritcal
+  		key = '|',
+  		mods = 'CTRL|OPT|SHIFT',
+  		action = act.SplitHorizontal
+  	},
   }
+
 end
 
 -- return our module table
