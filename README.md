@@ -5,7 +5,7 @@
 ```
 -- Define needed vars
 set appName to "WezTerm"
-set launcher to "/Applications/WezTerm.app/Contents/MacOS/wezterm-gui"
+set launcher to "open /Applications/WezTerm.app"
 
 -- Ensure System Events is activated to check frontmost process
 tell application "System Events"
